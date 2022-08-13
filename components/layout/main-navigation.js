@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { useState } from 'react';
+import { useSession } from 'next-auth/client';
 
 import FormLogin from './form-login';
 import Logo from './logo';
@@ -6,7 +8,7 @@ import Logout from './logout';
 import classes from './main-navigation.module.css';
 
 function MainNavigation(props) {
-  const isLogin = false;
+  const [session, loading] = useSession();
   return (
     <header className={classes.header}>
       <Link href='/'>
@@ -15,10 +17,11 @@ function MainNavigation(props) {
         </a>
       </Link>
       <nav>
-        {isLogin ? <Logout /> : <FormLogin />}
+        {!session && !loading && <FormLogin />}
+        {session&&  <Logout userInfo={session.user.email} />}
       </nav>
     </header>
   )
 }
 
-export default MainNavigation
+export default MainNavigation;

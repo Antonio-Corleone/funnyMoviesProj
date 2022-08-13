@@ -1,10 +1,13 @@
 import Link from 'next/link';
+import { useSession,signOut } from 'next-auth/client';
+
 import classes from './logout.module.css'
 
-function Logout() {
+function Logout(props) {
+  const { userInfo } = props
   return (
     <div className={classes.content}>
-      <p className={classes.item}>Welcome <b>tuanvm@gmail.com</b></p>
+      <p className={classes.item}>Welcome <b>{userInfo}</b></p>
       <div className={classes.item}>
         <button>
           <Link href="/share-page">
@@ -14,7 +17,7 @@ function Logout() {
         </button>
       </div>
       <div className={classes.item}>
-        <button>Logout</button>
+        <button onClick={signOut}>Logout</button>
       </div>
     </div>
   )
