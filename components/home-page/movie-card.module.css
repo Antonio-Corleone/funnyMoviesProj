@@ -1,0 +1,22 @@
+.cardContent{
+  display: flex;
+  width: 80%;
+  margin: auto;
+  align-items: center;
+  border: 1px solid;
+  padding: 10px;
+}
+.itemLeft{
+  width: 40%;
+}
+.itemRight{
+  width: 60%;
+  padding: 0 40px;
+  text-align: justify;
+  font-size: 1.125rem;
+}
+.itemRight .movieTitle{
+  color: brown;
+  font-size: 25px;
+  margin: 10px 0;
+}

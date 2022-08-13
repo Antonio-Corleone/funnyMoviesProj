@@ -1,0 +1,14 @@
+.content{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.item{
+  margin-right: 10px;
+}
+.item button{
+  font-size: 18px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}

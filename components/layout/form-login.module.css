@@ -1,0 +1,18 @@
+.form {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.controls{
+  margin-right: 10px;
+}
+.controls input{
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.button{
+  font-size: 18px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
