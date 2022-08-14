@@ -1,8 +1,26 @@
+.content{
+  display: flex;
+  align-items: center;
+}
 .logo {
   font-size: 38px;
+  margin-left: 5px;
+}
+.clear{
+  clear: both;
+}
+@media only screen and (max-width: 1024px){
+  .logo {
+    font-size: 30px;
+  }
 }
 @media only screen and (max-width: 991px){
   .logo {
-    font-size: 30px;
+    font-size: 28px;
+  }
+}
+@media only screen and (max-width: 699px){
+  .logo {
+    font-size: 22px;
   }
 }
