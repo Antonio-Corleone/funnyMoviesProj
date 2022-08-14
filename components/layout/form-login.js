@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { signIn } from 'next-auth/client';
 import { useRouter } from 'next/router';
 
+import Notification from '../ui/notification';
+import NotificationHandler from '../../lib/notification-util';
 import classes from './form-login.module.css';
 
 function FormLogin(props) {
@@ -10,7 +12,22 @@ function FormLogin(props) {
     email: '',
     password: ''
   })
+  const [requestStatus, setRequestStatus] = useState(null);
+  let notification = NotificationHandler(requestStatus);
+  console.log(notification);
   const router = useRouter();
+
+  useEffect(() => {
+    if (requestStatus === 'pending' || requestStatus === 'error' || requestStatus === 'success') {
+      const timer = setTimeout(() => {
+        setRequestStatus(null);
+      }, 6000);
+      return () => {
+        clearTimeout(timer);
+      }
+    }
+  }, [requestStatus])
+
   const handleLoginRegister = async (userInfo) => {
     const response = await fetch('api/auth/user-login', {
       method: 'POST',
@@ -39,10 +56,13 @@ function FormLogin(props) {
   }
   const handleOnSubmit = async (event) => {
     event.preventDefault();
+    setRequestStatus('pending');
     try {
       await handleLoginRegister(enteredInput);
+      setRequestStatus('success');
     } catch (error) {
       console.log(error);
+      setRequestStatus('error');
     }
   }
 
@@ -84,6 +104,13 @@ function FormLogin(props) {
         </button>
       </form>
       <p className={classes.error}>{errorMessage}</p>
+      {/* Add notification */}
+      {notification &&
+        <Notification
+          title={notification.title}
+          message={notification.message}
+          status={notification.status}
+        />}
     </div>
   )
 }
