@@ -25,7 +25,7 @@ export default function Home(props) {
   )
 }
 export async function getStaticProps(context) {
-  const response = await fetch(`${process.env.LOCAL_API}api/movie/get-movie`);
+  const response = await fetch(`https://funny-movies-proj-ju8uyjxq0-antonio-corleone.vercel.app/api/movie/get-movie`);
   const movieData = await response.json();
   return {
     props: {
