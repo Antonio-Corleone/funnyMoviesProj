@@ -7,3 +7,13 @@
   padding: 0 20px;
   border-bottom: 2px solid black;
 }
+@media only screen and (max-width: 1280px){
+  .header{
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 991px){
+  .header{
+    width: 100%;
+  }
+}

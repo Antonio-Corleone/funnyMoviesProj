@@ -39,13 +39,13 @@ async function handler(req, res) {
         try {
           await storeCollection(client, 'users', newUser);
         } catch (error) {
-          res.status(500).json({ message: error.message || 'Some thing went wrong' })
+          res.status(500).json({ content: { message: error.message || 'Some thing went wrong' } })
           client.close();
           return
         }
       }
     } catch (error) {
-      res.status(500).json({ message: error.message || 'Some thing went wrong' })
+      res.status(500).json({ content:{message: error.message || 'Some thing went wrong'} })
       client.close();
       return
     }

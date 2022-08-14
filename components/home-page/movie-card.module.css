@@ -20,3 +20,15 @@
   font-size: 25px;
   margin: 10px 0;
 }
+@media only screen and (max-width: 1024px){
+  .itemRight{
+    padding: 0 20px;
+    font-size: 1.125rem;
+  }
+}
+@media only screen and (max-width: 992px){
+  .itemRight{
+    padding: 0 20px;
+    font-size: 1rem;
+  }
+}

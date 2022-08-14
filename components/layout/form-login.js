@@ -4,8 +4,6 @@ import { useRouter } from 'next/router';
 
 import classes from './form-login.module.css';
 
-
-
 function FormLogin(props) {
   const [errorMessage, setErrorMessage] = useState('')
   const [enteredInput, setEnteredInput] = useState({
@@ -24,7 +22,7 @@ function FormLogin(props) {
     const data = await response.json();
     if (!response.ok) {
       setErrorMessage(data?.content?.error)
-      throw new Error(data.message || 'Something went wrong')
+      throw new Error(data?.content || 'Something went wrong')
     }
     if (data?.content?.isLogin) {
       const result = await signIn('credentials', {

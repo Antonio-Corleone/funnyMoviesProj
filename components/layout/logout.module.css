@@ -12,3 +12,8 @@
   border-radius: 5px;
   cursor: pointer;
 }
+@media only screen and (max-width: 1024px){
+  .item button{
+    font-size: 14px;
+  }
+}

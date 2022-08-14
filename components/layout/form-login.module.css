@@ -25,3 +25,18 @@
   left: 10px;
   color: red;
 }
+@media only screen and (max-width: 1024px){
+  .button{
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 991px){
+  .controls input{
+    width: 150px;
+  }
+}
+@media only screen and (max-width: 768px){
+  .controls input{
+    width: 120px;
+  }
+}
