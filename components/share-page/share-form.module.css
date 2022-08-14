@@ -1,11 +1,11 @@
 .form {
-  width: 50%;
+  width: 60%;
   margin: auto;
   margin-top: 40px;
 }
 
 .form fieldset {
-  padding: 20px 40px;
+  padding: 40px;
 }
 .form legend{
   font-size: 20px;
@@ -18,8 +18,8 @@
 }
 
 .controls input {
-  flex: 4;
-  padding: 5px 10px;
+  flex: 3;
+  padding: 10px;
   margin: 10px 0;
   border: 1px solid;
   border-radius: 5px;
@@ -37,6 +37,22 @@
 }
 .button button{
   padding: 10px 20px;
+  margin-top: 20px;
   font-size: 14px;
   cursor: pointer;
+}
+@media only screen and (max-width: 1280px){
+  .form{
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 1024px){
+  .form{
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 991px){
+  .form{
+    width: 90%;
+  }
 }
