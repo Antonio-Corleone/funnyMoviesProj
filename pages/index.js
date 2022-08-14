@@ -6,22 +6,31 @@ const getMovie = async () => {
   return await response.json();
 }
 
-export default function Home() {
-  const [movieList, setMovieList] = useState();
+export default function Home(props) {
+  const [movieList, setMovieList] = useState(props.data);
   useEffect(() => {
     (async function () {
       const result = await getMovie();
-      setMovieList(result)
+      setMovieList(result?.content?.data)
     })();
   }, []);
-
   return (
     <Fragment>
-      {movieList?.content?.data.map(movie=>{
+      {movieList && movieList.map(movie => {
         return (
-          <MovieCard movie={movie} key={movie.id}/>
+          <MovieCard movie={movie} key={movie.id} />
         )
       })}
     </Fragment>
   )
+}
+export async function getStaticProps(context) {
+  const response = await fetch(`${process.env.LOCAL_API}api/movie/get-movie`);
+  const movieData = await response.json();
+  return {
+    props: {
+      data: movieData?.content?.data,
+    },
+    revalidate: 3600
+  }
 }
