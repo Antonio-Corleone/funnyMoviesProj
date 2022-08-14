@@ -40,7 +40,6 @@ function ShareForm(props) {
   const handleOnSubmit = async (event) => {
     event.preventDefault();
     setRequestStatus('pending');
-    console.log(enteredInput);
     try {
       await handleAddMovie({ ...enteredInput, author: user.email });
       setRequestStatus('success');

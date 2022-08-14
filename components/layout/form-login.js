@@ -14,7 +14,6 @@ function FormLogin(props) {
   })
   const [requestStatus, setRequestStatus] = useState(null);
   let notification = NotificationHandler(requestStatus);
-  console.log(notification);
   const router = useRouter();
 
   useEffect(() => {
